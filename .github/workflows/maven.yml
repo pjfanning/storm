@@ -36,7 +36,6 @@ jobs:
       with:
         python-version: '3.9'
         cache: 'pipenv'
-    - run: pipenv install
     - run: pipenv install mock
     - name: Build with Maven
       run: mvn install -P-externals -P-examples
