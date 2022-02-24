@@ -30,9 +30,13 @@ jobs:
       with:
         node-version: '8.9.3'
     - run: npm install
+    - name: Install pipenv
+      run: pipx install pipenv
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
-    - run: pip install mock
+        python-version: '3.9'
+        cache: 'pipenv'
+    - run: pipenv install
+    - run: pipenv install mock
     - name: Build with Maven
       run: mvn install -P-externals -P-examples
